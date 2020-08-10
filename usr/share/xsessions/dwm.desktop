@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=dwm
+Comment=Log in using dwm (without a session manager)
+Exec=/usr/local/bin/dwm-start.sh
+#Terminal=terminator
+TryExec=/usr/local/bin/dwm-start.sh
+Icon=dwm
+Type=Application
