@@ -12,6 +12,11 @@ dwmu is an efficient dynamic window manager for X.
 git clone https://github.com/fbmooose48/dwm
 cd dwm
 sudo make install
+sudo mv usr/share/xsessions/dwm.desktop /usr/share/xsessions
+sudo mv usr/local/bin/dwm-start.sh /usr/local/bin
+sudo chmod +x /usr/local/bin/dwm-start.sh
+sudo pacman -S --needed libxft ttf-hack ttf-joypixels stalonetray picom xorg-xrandr xorg-xsetroot nitrogen nm-applet 
+yay -S --needed nerd-fonts-source-code-pro libxft-bgra
 ```
 ## Requirements
 
@@ -33,6 +38,7 @@ Also, you will need to add the following from the AUR:
 + stalonetray
 + picom
 + xorg-xrandr
++ xorg-xsetroot
 + nitrogen
 + nm-applet
 
