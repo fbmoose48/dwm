@@ -17,3 +17,15 @@ sudo make install
 
 In order to build dmenu you need the Xlib header files.
 `make` is required to build.
+
++libxft
++ttf-hack
++ttf-joypixels
++st
++dmenu
+
+Also, you will need to add the following from the AUR:
+
+nerd-fonts-source-code-pro
+
+https://aur.archlinux.org/packages/libxft-bgra/ (needed for colored fonts and emojis)
