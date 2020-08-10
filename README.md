@@ -27,5 +27,12 @@ In order to build dmenu you need the Xlib header files.
 Also, you will need to add the following from the AUR:
 
 nerd-fonts-source-code-pro
+libxft-bgra https://aur.archlinux.org/packages/libxft-bgra/ (needed for colored fonts and emojis)
 
-https://aur.archlinux.org/packages/libxft-bgra/ (needed for colored fonts and emojis)
+# dwm-start.sh requires
++ stalonetray
++ picom
++ xorg-xrandr
++ nitrogen
++ nm-applet
+
