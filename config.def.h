@@ -61,11 +61,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 5,       0,           1 },
-	{ "thunderbird",  NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "vlc",	NULL,	NULL,	1 << 3,	0,	0},
+	/* class	instance	title	tags mask	isfloating	monitor */
+	{ "Gimp",	NULL,		NULL,	0,		1,		-1 },
+	{ "Firefox",	NULL,		NULL,	1 << 5,		0,		1 },
+	{ "thunderbird", NULL,		NULL,	1 << 3,		0,		0},
+	{ "vlc",	NULL,		NULL,	1 << 3,		0,		0},
 };
 
 /* layout(s) */
@@ -78,8 +78,6 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "HHH",      grid },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ NULL,       NULL },
@@ -100,13 +98,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "terminator", NULL };
-/*static const char *cmd[] = { "", NULL };*/
+static const char *traycmd[] = { "stalonetray", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *emailcmd[]  = { "thunderbird", NULL };
 static const char *filecmd[] = { "nautilus", NULL };
 static const char *htopcmd[] = { "st", "-e", "htop", NULL };
 static const char *configcmd[] = { "st", "-e", "sudo", "-w", "nano", "/home/brian/dwm/config.h", NULL };
-/*static const char *cmd[] = { "", NULL };*/
+static const char *killcmd[] = { "st", "-e", "sudo", "shutdown", "-h", "now", NULL };
 static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak-1.0.5/build/bin/start.sh", NULL };
 static const char *vpncmd[] = { "st", "-e", "sudo", "/home/brian/.expressvpnconf/script/dc-vpn.sh", NULL };
 
@@ -115,13 +113,13 @@ static Key keys[] = {
 	/* Spawn Windows */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-/*	{ MODKEY,                       XK_q,      spawn,          {.v = cmd } }, */
+	{ MODKEY,                       XK_q,      spawn,          {.v = traycmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = emailcmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = filecmd } },
 	{ MODKEY,                       XK_a,      spawn,          {.v = htopcmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = configcmd } },
-/*	{ MODKEY,                       XK_z,      spawn,          {.v = cmd } }, */
+	{ MODKEY,                       XK_z,      spawn,          {.v = killcmd } },
 	{ MODKEY,                       XK_x,      spawn,          {.v = xmrstakcmd } },
 	{ MODKEY,			XK_v,      spawn,          {.v = vpncmd } },
 	/* Stack Manipulation */
@@ -140,10 +138,8 @@ static Key keys[] = {
 	/* Layout Manipulation */
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[5]} },	
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },

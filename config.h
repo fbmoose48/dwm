@@ -61,11 +61,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 5,       0,           1 },
-	{ "thunderbird",  NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "vlc",	NULL,	NULL,	1 << 3,	0,	0},
+	/* class	instance	title	tags mask	isfloating	monitor */
+	{ "Gimp",	NULL,		NULL,	0,		1,		-1 },
+	{ "Firefox",	NULL,		NULL,	1 << 1,		0,		1 },
+	{ "thunderbird", NULL,		NULL,	1 << 2,		0,		0},
+	{ "st",		NULL,		NULL,	1 << 3,		0,		1},
+	{ "vlc",	NULL,		NULL,	1 << 3,		0,		0},
+	{ "chromium",	NULL,		NULL,	1 << 5,		0,		0},
 };
 
 /* layout(s) */
@@ -78,8 +80,6 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "HHH",      grid },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ NULL,       NULL },
@@ -140,10 +140,8 @@ static Key keys[] = {
 	/* Layout Manipulation */
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[5]} },	
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
