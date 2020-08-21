@@ -1,6 +1,6 @@
 # Custom build of dwm - dynamic window manager
 
-dwmu is an efficient dynamic window manager for X.
+dwm is an efficient dynamic window manager for X.
 
 ## patches
 
