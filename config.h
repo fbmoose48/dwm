@@ -29,7 +29,7 @@ static const char *colors[][3]      = {
 /* tagging */
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 /*static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; */
-static const char *tags[] = { "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "爵" };
 
 /* Launcher (feature disabled in dwm.c) */
 /* launcher commands (They must be NULL terminated) */
@@ -60,13 +60,14 @@ static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
-	 */
-	/* class	instance	title	tags mask	isfloating	monitor */
-	{ "Gimp",	NULL,		NULL,	0,		1,		-1 },
-	{ "Navigator",	NULL,		NULL,	1 << 1,		0,		1 },
-	{ "Mail",	NULL,		NULL,	1 << 2,		0,		0},
-	{ "vlc",	NULL,		NULL,	1 << 3,		0,		0},
-	{ "Chromium",	NULL,		NULL,	1 << 5,		0,		0},
+	 * -1 = left, 0 = center, 1 = right  */
+	/* class		instance	title	tags mask	isfloating	monitor */
+	{ "Gimp",		NULL,		NULL,	0,		1,		-1 },
+	{ "Evince",		NULL,		NULL,	0,		1,		-1 },
+	{ "Navigator",		NULL,		NULL,	1 << 1,		0,		1 },
+	{ "Thunderbird",	NULL,		NULL,	1 << 2,		0,		0 },
+	{ "vlc",		NULL,		NULL,	1 << 3,		0,		0 },
+	{ "Chromium",		NULL,		NULL,	1 << 5,		0,		0 },
 };
 
 /* layout(s) */
@@ -104,25 +105,28 @@ static const char *browsercmd[] = { "firefox", NULL };
 static const char *emailcmd[]  = { "thunderbird", NULL };
 static const char *filecmd[] = { "nautilus", NULL };
 static const char *htopcmd[] = { "st", "-e", "htop", NULL };
-static const char *configcmd[] = { "st", "-e", "sudo", "-w", "nano", "/home/brian/dwm/config.h", NULL };
+static const char *lockcmd[] = { "slock", NULL };
+/*static const char *configcmd[] = { "st", "-e", "sudo", "-w", "nano", "/home/brian/dwm/config.h", NULL };*/
 static const char *killcmd[] = { "st", "-e", "sudo", "shutdown", "-h", "now", NULL };
 static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak-1.0.5/build/bin/start.sh", NULL };
 static const char *vpncmd[] = { "st", "-e", "sudo", "/home/brian/.expressvpnconf/script/dc-vpn.sh", NULL };
+static const char *chromecmd[] = { "chromium", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Spawn Windows */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             		XK_Tab,	   spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,       	XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = traycmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = emailcmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = filecmd } },
 	{ MODKEY,                       XK_a,      spawn,          {.v = htopcmd } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = configcmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_z,      spawn,          {.v = killcmd } },
 	{ MODKEY,                       XK_x,      spawn,          {.v = xmrstakcmd } },
 	{ MODKEY,			XK_v,      spawn,          {.v = vpncmd } },
+	{ MODKEY,			XK_quoteleft,	spawn,		{.v = chromecmd } },
 	/* Stack Manipulation */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -134,7 +138,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY|ShiftMask,             XK_Return, view,           {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	/* Layout Manipulation */
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
