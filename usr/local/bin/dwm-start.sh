@@ -32,23 +32,22 @@ while true; do
 	curl ipinfo.io/ip 1 > /tmp/CurIP.tmp
 	sleep 60s
 done &
+#30s while loop
+while true; do
+#battery capacity
+	cat /sys/class/power_supply/BAT0/capacity > /tmp/BATCAP.tmp
+	sleep 30s
+done &
 #15s while loop
 while true; do
+#battery status
+	cat /sys/class/power_supply/BAT0/status > /tmp/BATSTAT.tmp
 #total memory
 	#free -h | awk '/^Mem:/ {print $2}' > /tmp/CurMEMTGI.tmp
 	#MEMT=( $MEMTGI/1024 );
 #free memory
 	#free -h | awk '/^Mem:/ {print $3}' > /tmp/CurMEMFGI.tmp
 	#MEMF=( $MEMFGI/1024 );
-#battery
-	#cat /sys/class/power_supply/BAT0/energy_full > /tmp/BATTOT.tmp
-	#BATTOT=$(< /tmp/BATTOT.tmp)
-	#cat /sys/class/power_supply/BAT0/energy_now > /tmp/BATFREE.tmp
-	#BATFREE=$(< /tmp/BATFREE.tmp)
-	#(( 100*$BATFREE/$BATTOT )) > /tmp/BATPER.tmp
-	#BATPER=$(< /tmp/BATPER.tmp)
-	cat /sys/class/power_supply/BAT0/capacity > /tmp/BATCAP.tmp
-	cat /sys/class/power_supply/BAT0/status > /tmp/BATSTAT.tmp
 #memfreak to get free memory in MB
 	#memfreak2=`grep MemFree /proc/meminfo | awk '{ print $2 }'`;
 	#memfreak=$(( $memfreak2/1024 ));
