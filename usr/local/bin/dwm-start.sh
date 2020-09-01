@@ -41,10 +41,14 @@ while true; do
 	#free -h | awk '/^Mem:/ {print $3}' > /tmp/CurMEMFGI.tmp
 	#MEMF=( $MEMFGI/1024 );
 #battery
-	#battotal=`awk '/last full capacity/{print $4}' < /proc/acpi/battery/BAT0/info`;
-	#batfree=`awk '/remaining capacity/{print $3}' < /proc/acpi/battery/BAT0/state`;
-	#battper=$(( 100*$batfree/$battotal ));
-	#battery=`awk '/charging state/{print $3}' < /proc/acpi/battery/BAT0/state`;
+	#cat /sys/class/power_supply/BAT0/energy_full > /tmp/BATTOT.tmp
+	#BATTOT=$(< /tmp/BATTOT.tmp)
+	#cat /sys/class/power_supply/BAT0/energy_now > /tmp/BATFREE.tmp
+	#BATFREE=$(< /tmp/BATFREE.tmp)
+	#(( 100*$BATFREE/$BATTOT )) > /tmp/BATPER.tmp
+	#BATPER=$(< /tmp/BATPER.tmp)
+	cat /sys/class/power_supply/BAT0/capacity > /tmp/BATCAP.tmp
+	cat /sys/class/power_supply/BAT0/status > /tmp/BATSTAT.tmp
 #memfreak to get free memory in MB
 	#memfreak2=`grep MemFree /proc/meminfo | awk '{ print $2 }'`;
 	#memfreak=$(( $memfreak2/1024 ));
@@ -62,6 +66,9 @@ while true; do
 	#NET=$(< /tmp/CurNET.tmp)
 #public ip
 	IP=$(< /tmp/CurIP.tmp)
+#battery
+	BATSTAT=$(< /tmp/BATSTAT.tmp)
+	BATCAP=$(< /tmp/BATCAP.tmp)
 #updates
 	UPD=$(< /tmp/CurUPD.tmp)
 #weather
@@ -76,7 +83,7 @@ while true; do
 #this one is not so good, increases a delay of 1-2s of the updating.
 #put it in the xsetrootname plz (tip of the day, do not put | as first char after "
 	#xsetroot -name "$AVG | $memfreak MB | $MEMFGI / $MEMTGI | $SSID $NET | $battper% $battery | Vol: $VOL | $CLK | "
-	xsetroot -name "$FCST |  $UPD | $IP | $CLK"
+	xsetroot -name "$FCST |  $UPD | $IP | $BATSTAT $BATCAP % | $CLK"
 	sleep 5s
 done &
 #status bar loop is done
