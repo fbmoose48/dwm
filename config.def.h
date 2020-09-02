@@ -65,7 +65,7 @@ static const Rule rules[] = {
 	{ "Gimp",		NULL,		NULL,	0,		1,		-1 },
 	{ "Evince",		NULL,		NULL,	0,		1,		-1 },
 	{ "Navigator",		NULL,		NULL,	1 << 1,		0,		1 },
-	{ "Thunderbird",	NULL,		NULL,	1 << 2,		0,		0 },
+	{ "Thunderbird",	NULL,		NULL,	1 << 4,		0,		0 },
 	{ "vlc",		NULL,		NULL,	1 << 3,		0,		0 },
 	{ "Chromium",		NULL,		NULL,	1 << 5,		0,		0 },
 };
@@ -106,27 +106,28 @@ static const char *emailcmd[]  = { "thunderbird", NULL };
 static const char *filecmd[] = { "nautilus", NULL };
 static const char *htopcmd[] = { "st", "-e", "htop", NULL };
 static const char *lockcmd[] = { "slock", NULL };
-/*static const char *configcmd[] = { "st", "-e", "sudo", "-w", "nano", "/home/brian/dwm/config.h", NULL };*/
+static const char *configcmd[] = { "st", "-e", "nano", "/home/brian/dwm/config.def.h", NULL };
 static const char *killcmd[] = { "st", "-e", "sudo", "shutdown", "-h", "now", NULL };
 static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak-1.0.5/build/bin/start.sh", NULL };
 static const char *vpncmd[] = { "st", "-e", "sudo", "/home/brian/.expressvpnconf/script/dc-vpn.sh", NULL };
 static const char *chromecmd[] = { "chromium", NULL };
 
 static Key keys[] = {
-	/* modifier                     key        function        argument */
+	/* modifier                     key		function	argument */
 	/* Spawn Windows */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,       	XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_q,      spawn,          {.v = traycmd } },
-	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
-	{ MODKEY,                       XK_e,      spawn,          {.v = emailcmd } },
-	{ MODKEY,                       XK_r,      spawn,          {.v = filecmd } },
-	{ MODKEY,                       XK_a,      spawn,          {.v = htopcmd } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = lockcmd } },
-	{ MODKEY,                       XK_z,      spawn,          {.v = killcmd } },
-	{ MODKEY,                       XK_x,      spawn,          {.v = xmrstakcmd } },
-	{ MODKEY,			XK_v,      spawn,          {.v = vpncmd } },
-	{ MODKEY,			XK_quoteleft,	spawn,		{.v = chromecmd } },
+	{ MODKEY,                       XK_p,		spawn,		{.v = dmenucmd } },
+	{ MODKEY|ShiftMask,       	XK_Return,	spawn,		{.v = termcmd } },
+	{ MODKEY,                       XK_q,		spawn,		{.v = traycmd } },
+	{ MODKEY,                       XK_w,		spawn,		{.v = browsercmd } },
+	{ MODKEY,                       XK_e,		spawn,		{.v = emailcmd } },
+	{ MODKEY,                       XK_r,		spawn,		{.v = filecmd } },
+	{ MODKEY,                       XK_a,		spawn,		{.v = htopcmd } },
+	{ MODKEY,                       XK_s,		spawn,		{.v = lockcmd } },
+	{ MODKEY,			XK_d,		spawn,		{.v = chromecmd } },
+	{ MODKEY,                       XK_z,		spawn,		{.v = killcmd } },
+	{ MODKEY,                       XK_x,		spawn,		{.v = xmrstakcmd } },
+	{ MODKEY,			XK_c,		spawn,		{.v = configcmd } },
+	{ MODKEY,			XK_v,		spawn,		{.v = vpncmd } },
 	/* Stack Manipulation */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -134,7 +135,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_u,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
