@@ -17,7 +17,10 @@ xsetroot -solid black
 #15 min while loop
 while true; do
 #updates
+	#Arch
 	checkupdates | wc -l > /tmp/CurUPD.tmp
+	#Gentoo
+	emerge -pvDuN world|awk '/ebuild/ {if ($2=="U") {u++}; if ($2=="R") {r++}; if ($2=="D") {d++}; if($2=="F"){f++}; if($2=="I"){i++}; if($2=="B"){b++};} END {total=u+r+d+f+i+b; if(total>0){ printf total};}' > /tmp/CurUPD.tmp
 #weather
 	weather.sh 06471 > /tmp/CurFCST.tmp
 	sleep 900s
@@ -108,7 +111,10 @@ picom &
 nitrogen --restore &
 
 # Display Setting
+#Arch
 xrandr --output HDMI-1 --auto --output DVI-D-1 --auto --left-of HDMI-1 --output DP-1 --auto --right-of HDMI-1 &
+#Gentoo
+#xrandr --output HDMI-A-0 --auto --output DVI-D-0 --auto --left-of HDMI-A-0 --output DisplayPort-0 --auto --right-of HDMI-A-0
 
 #start freshly compiled dwm after loop
 exec /usr/local/bin/dwm > /dev/null
