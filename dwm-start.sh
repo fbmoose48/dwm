@@ -103,7 +103,10 @@ picom &
 nitrogen --restore &
 
 # Display Setting
+#Arch 3-monitor
 xrandr --output HDMI-1 --auto --output DVI-D-1 --auto --left-of HDMI-1 --output DP-1 --auto --right-of HDMI-1 &
+#Gentoo 3-monitor
+#xrandr --output HDMI-A-0 --auto --output DVI-D-0 --auto --left-of HDMI-A-0 --output DisplayPort-0 --auto --right-of HDMI-A-0
 
 #start freshly compiled dwm after loop
 exec /usr/local/bin/dwm > /dev/null
