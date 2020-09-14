@@ -63,11 +63,11 @@ static const Rule rules[] = {
 	 * -1 = left, 0 = center, 1 = right  */
 	/* class		instance	title	tags mask	isfloating	monitor */
 	{ "Gimp",		NULL,		NULL,	0,		1,		-1 },
-	{ "Evince",		NULL,		NULL,	0,		1,		-1 },
-	{ "Navigator",		NULL,		NULL,	1 << 1,		0,		1 },
+/*	{ "Evince",		NULL,		NULL,	0,		1,		-1 }, */
+/*	{ "Navigator",		NULL,		NULL,	1 << 1,		0,		1 }, */
 	{ "Thunderbird",	NULL,		NULL,	1 << 4,		0,		0 },
 	{ "vlc",		NULL,		NULL,	1 << 3,		0,		0 },
-	{ "Chromium",		NULL,		NULL,	1 << 5,		0,		0 },
+/*	{ "Chromium",		NULL,		NULL,	1 << 5,		0,		0 }, */
 };
 
 /* layout(s) */
