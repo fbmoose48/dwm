@@ -10,7 +10,7 @@ dwm is an efficient dynamic window manager for X.
 
 ```
 sudo rm -r dwm
-git clone https://github.com/fbmooose48/dwm
+git clone https://github.com/fbmooose48/dwm.git
 cd dwm
 sudo make install
 sudo mv usr/share/xsessions/dwm.desktop /usr/share/xsessions
