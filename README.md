@@ -16,7 +16,7 @@ sudo make install
 sudo mv usr/share/xsessions/dwm.desktop /usr/share/xsessions
 sudo mv usr/local/bin/dwm-start.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/dwm-start.sh
-sudo pacman -S --needed libxft ttf-hack ttf-joypixels picom xorg-xrandr xorg-xsetroot nitrogen stalonetray nm-applet pasystray blueman
+sudo pacman -S --needed libxft ttf-hack ttf-joypixels picom xorg-xrandr xorg-xsetroot nitrogen stalonetray network-manager-applet pasystray blueman
 yay -S --needed nerd-fonts-source-code-pro libxft-bgra
 ```
 ## Requirements
