@@ -109,7 +109,8 @@ static const char *lockcmd[] = { "slock", NULL };
 static const char *configcmd[] = { "st", "-e", "nano", "/home/brian/dwm/config.def.h", NULL };
 static const char *killcmd[] = { "st", "-e", "sudo", "shutdown", "-h", "now", NULL };
 static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak-1.0.5/build/bin/start.sh", NULL };
-static const char *vpncmd[] = { "st", "-e", "sudo", "/home/brian/.expressvpnconf/script/dc-vpn.sh", NULL };
+static const char *rebootcmd[] = { "st", "-e", "sudo", "reboot", NULL };
+/*static const char *vpncmd[] = { "st", "-e", "sudo", "/home/brian/.expressvpnconf/script/dc-vpn.sh", NULL };*/
 static const char *chromecmd[] = { "chromium", NULL };
 
 static Key keys[] = {
@@ -127,7 +128,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_z,		spawn,		{.v = killcmd } },
 	{ MODKEY,                       XK_x,		spawn,		{.v = xmrstakcmd } },
 	{ MODKEY,			XK_c,		spawn,		{.v = configcmd } },
-	{ MODKEY,			XK_v,		spawn,		{.v = vpncmd } },
+	{ MODKEY,			XK_v,		spawn,		{.v = rebootcmd } },
+/*      { MODKEY,                       XK_y,           spawn,          {.v = xmrstakcmd } },
+        { MODKEY,                       XK_o,           spawn,          {.v = configcmd } },
+        { MODKEY,                       XK_p,           spawn,          {.v = rebootcmd } },*/
 	/* Stack Manipulation */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
