@@ -21,7 +21,7 @@ yay -S --needed nerd-fonts-source-code-pro libxft-bgra
 ```
 ### Gentoo
 ```
-emerge --ask x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
+emerge --ask x11-libs/libXinerama x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
 ```
 
 ## Requirements
