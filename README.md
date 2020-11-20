@@ -19,7 +19,7 @@ sudo chmod +x /usr/local/bin/dwm-start.sh
 sudo pacman -S --needed libxft ttf-hack ttf-joypixels picom xorg-xrandr xorg-xsetroot nitrogen stalonetray network-manager-applet pasystray blueman
 yay -S --needed nerd-fonts-source-code-pro libxft-bgra
 ```
-###Gentoo
+### Gentoo
 ```
 emerge --ask x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
 ```
