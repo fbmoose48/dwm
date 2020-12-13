@@ -2,14 +2,13 @@
 
 # --- commands here and before the "while true; do" are run once
 #xrdb -merge ~/.Xresources
-#open screensaver (so that gnome-screensaver-command -l works)
-#/usr/bin/gnome-screensaver &
-#open pwer manager
-#exec gnome-power-manager
+
 #black bg
 xsetroot -solid black
 #path to background
 #/usr/share/backgrounds/abstract/Flow.png
+
+#Conky
 /home/brian/.config/conky/lux-hud/startall.sh &
 
 
@@ -17,8 +16,6 @@ xsetroot -solid black
 #15 min while loop
 while true; do
 #updates
-	#Arch
-	checkupdates | wc -l > /tmp/CurUPD.tmp
 	#Gentoo
 	emerge -pvDuN world|awk '/ebuild/ {if ($2=="U") {u++}; if ($2=="R") {r++}; if ($2=="D") {d++}; if($2=="F"){f++}; if($2=="I"){i++}; if($2=="B"){b++};} END {total=u+r+d+f+i+b; if(total>0){ printf total};}' > /tmp/CurUPD.tmp
 #weather
@@ -92,31 +89,21 @@ done &
 
 #traying
 sleep 1
-#/usr/bin/ck-launch-session &
-#exec /usr/bin trayer --edge top --align center --distance 1 --SetDockType true --SetPartialStrut true --expand true --widthtype percent --width 2 --height 32 &
-#/usr/local/bin/stalonetray &
+stalonetray &
 #dwmblock &
 nm-applet &
-#pa-applet &
-#pasystray &
-#/usr/bin/gnome-volume-control-applet &
+pasystray &
 
 # Compositor
 #compton &
 picom &
 
 # Wallpaper
-#feh -z -Z --bg-scale /home/brian/Pictures/dwm_pattern.png
-#feh -z -Z -B black -b trans --bg-scale /home/brian/Pictures/Flow.png
 nitrogen --restore &
 
 # Display Setting
-#Arch
-xrandr --output HDMI-1 --auto --output DVI-D-1 --auto --left-of HDMI-1 --output DP-1 --auto --right-of HDMI-1 &
 #Gentoo
-#xrandr --output HDMI-A-0 --auto --output DVI-D-0 --auto --left-of HDMI-A-0 --output DisplayPort-0 --auto --right-of HDMI-A-0
+xrandr --output HDMI-A-0 --auto --output DVI-D-0 --auto --left-of HDMI-A-0 --output DisplayPort-0 --auto --right-of HDMI-A-0
 
 #start freshly compiled dwm after loop
 exec /usr/local/bin/dwm > /dev/null
-#start stable dwm after loop
-#exec /usr/local/bin/dwm-6.2-20200807 > /dev/null
