@@ -9,8 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 2;        /* vertical padding for statusbar */
 static const char *fonts[]          = {"SauceCodePro Nerd Font:size=12:antialias=true:autohint=true",
-					"Hack:size=12:antialias=true:autohint=true",
-					"JoyPixels:size=14:antialias=true:autohint=true"
+					"Hack:size=12:antialias=true:autohint=true"
 					}; /* monospace:size=10 */
 static const char dmenufont[]       = "SauceCodePro Nerd Font:size=12";
 static const char col_gray1[]       = "#222222";
