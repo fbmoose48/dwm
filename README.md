@@ -25,7 +25,7 @@ emerge --ask x11-libs/libXinerama x11-libs/libXft media-fonts/hack x11-misc/stal
 ```
 ### Ubuntu
 ```
-sudo apt install libxinerama-dev libfontconfig1-dev ibharfbuzz-dev xorg-dev fonts-hack fonts-powerline compton lxrandr x11-xserver-utils nitrogen stalonetray pasystray network-manager-gnome
+sudo apt install libxinerama-dev libfontconfig1-dev libharfbuzz-dev xorg-dev fonts-hack fonts-powerline compton lxrandr x11-xserver-utils nitrogen stalonetray pasystray network-manager-gnome
 ```
 ### Sauce Code Font
 ```
