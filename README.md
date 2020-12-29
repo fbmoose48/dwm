@@ -23,6 +23,16 @@ yay -S --needed nerd-fonts-source-code-pro libxft-bgra
 ```
 emerge --ask x11-libs/libXinerama x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
 ```
+### Ubuntu
+```
+sudo apt install libxinerama-dev libfontconfig1-dev ibharfbuzz-dev xorg-dev fonts-hack fonts-powerline compton lxrandr x11-xserver-utils nitrogen stalonetray pasystray network-manager-gnome
+```
+### Sauce Code Font
+```
+git clone https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+./install.sh SourceCodePro
+```
 
 ## Requirements
 
