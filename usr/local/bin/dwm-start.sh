@@ -2,12 +2,10 @@
 
 # --- commands here and before the "while true; do" are run once
 #xrdb -merge ~/.Xresources
-#open screensaver (so that gnome-screensaver-command -l works)
-#/usr/bin/gnome-screensaver &
-#open pwer manager
-#exec gnome-power-manager
+
 #black bg
 xsetroot -solid black
+
 #path to background
 #/usr/share/backgrounds/abstract/Flow.png
 /home/brian/.config/conky/lux-hud/startall.sh &
@@ -20,7 +18,7 @@ while true; do
 	#Arch
 	checkupdates | wc -l > /tmp/CurUPD.tmp
 	#Gentoo
-	emerge -pvDuN world|awk '/ebuild/ {if ($2=="U") {u++}; if ($2=="R") {r++}; if ($2=="D") {d++}; if($2=="F"){f++}; if($2=="I"){i++}; if($2=="B"){b++};} END {total=u+r+d+f+i+b; if(total>0){ printf total};}' > /tmp/CurUPD.tmp
+	#emerge -pvDuN world|awk '/ebuild/ {if ($2=="U") {u++}; if ($2=="R") {r++}; if ($2=="D") {d++}; if($2=="F"){f++}; if($2=="I"){i++}; if($2=="B"){b++};} END {total=u+r+d+f+i+b; if(total>0){ printf total};}' > /tmp/CurUPD.tmp
 #weather
 	weather.sh 06471 > /tmp/CurFCST.tmp
 	sleep 900s
@@ -38,22 +36,13 @@ done &
 #30s while loop
 while true; do
 #battery capacity
-	cat /sys/class/power_supply/BAT0/capacity > /tmp/BATCAP.tmp
+	#cat /sys/class/power_supply/BAT0/capacity > /tmp/BATCAP.tmp
 	sleep 30s
 done &
 #15s while loop
 while true; do
 #battery status
-	cat /sys/class/power_supply/BAT0/status > /tmp/BATSTAT.tmp
-#total memory
-	#free -h | awk '/^Mem:/ {print $2}' > /tmp/CurMEMTGI.tmp
-	#MEMT=( $MEMTGI/1024 );
-#free memory
-	#free -h | awk '/^Mem:/ {print $3}' > /tmp/CurMEMFGI.tmp
-	#MEMF=( $MEMFGI/1024 );
-#memfreak to get free memory in MB
-	#memfreak2=`grep MemFree /proc/meminfo | awk '{ print $2 }'`;
-	#memfreak=$(( $memfreak2/1024 ));
+	#cat /sys/class/power_supply/BAT0/status > /tmp/BATSTAT.tmp
 	sleep 15s
 done &
 #5s while loop
@@ -69,23 +58,17 @@ while true; do
 #public ip
 	IP=$(< /tmp/CurIP.tmp)
 #battery
-	BATSTAT=$(< /tmp/BATSTAT.tmp)
-	BATCAP=$(< /tmp/BATCAP.tmp)
+	#BATSTAT=$(< /tmp/BATSTAT.tmp)
+	#BATCAP=$(< /tmp/BATCAP.tmp)
 #updates
 	UPD=$(< /tmp/CurUPD.tmp)
 #weather
 	FCST=$(< /tmp/CurFCST.tmp)
-#memory
-	#MEMTGI=$(< /tmp/CurMEMTGI.tmp)
-	#MEMFGI=$(< /tmp/CurMEMFGI.tmp)
-#loadavg
-	#AVG=$( cat /proc/loadavg | cut -d ' ' -f -3 )
-#network stats in Bytes
-	#NW=$( dstat -n --nocolor 1 1 | tail -1 | awk '{ print $1, $2}' )
+
 #this one is not so good, increases a delay of 1-2s of the updating.
 #put it in the xsetrootname plz (tip of the day, do not put | as first char after "
-	#xsetroot -name "$AVG | $memfreak MB | $MEMFGI / $MEMTGI | $SSID $NET | $battper% $battery | Vol: $VOL | $CLK | "
-	xsetroot -name "$FCST |  $UPD | $IP | $BATSTAT $BATCAP % | $CLK"
+	#xsetroot -name "$FCST |  $UPD | $IP | $BATSTAT $BATCAP % | $CLK"
+	xsetroot -name "$FCST |  $UPD | $IP | $CLK"
 	sleep 5s
 done &
 #status bar loop is done
@@ -99,15 +82,12 @@ sleep 1
 nm-applet &
 #pa-applet &
 #pasystray &
-#/usr/bin/gnome-volume-control-applet &
 
 # Compositor
 #compton &
 picom &
 
 # Wallpaper
-#feh -z -Z --bg-scale /home/brian/Pictures/dwm_pattern.png
-#feh -z -Z -B black -b trans --bg-scale /home/brian/Pictures/Flow.png
 nitrogen --restore &
 
 # Display Setting
@@ -116,7 +96,5 @@ xrandr --output HDMI-1 --auto --output DVI-D-1 --auto --left-of HDMI-1 --output 
 #Gentoo
 #xrandr --output HDMI-A-0 --auto --output DVI-D-0 --auto --left-of HDMI-A-0 --output DisplayPort-0 --auto --right-of HDMI-A-0
 
-#start freshly compiled dwm after loop
+#start dwm after loop
 exec /usr/local/bin/dwm > /dev/null
-#start stable dwm after loop
-#exec /usr/local/bin/dwm-6.2-20200807 > /dev/null
