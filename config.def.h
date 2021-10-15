@@ -28,7 +28,7 @@ static const char *colors[][3]      = {
 /* tagging */
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 /*static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; */
-static const char *tags[] = { "", "", "", "", "", "爵" };
+static const char *tags[] = { "", "", "", "", "", "爵" };
 
 /* Launcher (feature disabled in dwm.c) */
 /* launcher commands (They must be NULL terminated) */
@@ -77,10 +77,10 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "grid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "HHH",      grid },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "侀",      tile },    /* first entry is default */
+	{ "ﱖ",      grid },
+	{ "恵",      NULL },    /* no layout function means floating behavior */
+	{ "頻",      monocle },
 	{ NULL,       NULL },
 };
 
@@ -107,7 +107,7 @@ static const char *htopcmd[] = { "st", "-e", "htop", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *configcmd[] = { "st", "-e", "nano", "/home/brian/dwm/config.def.h", NULL };
 static const char *killcmd[] = { "st", "-e", "sudo", "shutdown", "-h", "now", NULL };
-static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak-1.0.5/build/bin/start.sh", NULL };
+static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak/build/bin/start.sh", NULL };
 static const char *rebootcmd[] = { "st", "-e", "sudo", "reboot", NULL };
 /*static const char *vpncmd[] = { "st", "-e", "sudo", "/home/brian/.expressvpnconf/script/dc-vpn.sh", NULL };*/
 static const char *chromecmd[] = { "chromium", NULL };
