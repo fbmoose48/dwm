@@ -18,6 +18,8 @@ sudo mv usr/local/bin/dwm-start.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/dwm-start.sh
 mv .xinitrc ~/
 sudo pacman -S --needed libxft ttf-hack ttf-joypixels	ttf-sourcecodepro-nerd picom xorg-xrandr xorg-xsetroot nitrogen stalonetray network-manager-applet pasystray blueman
+
+#deprecated
 yay -S --needed libxft-bgra
 ```
 ### Gentoo
