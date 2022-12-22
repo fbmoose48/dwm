@@ -78,10 +78,10 @@ sleep 1
 #/usr/bin/ck-launch-session &
 #exec /usr/bin trayer --edge top --align center --distance 1 --SetDockType true --SetPartialStrut true --expand true --widthtype percent --width 2 --height 32 &
 #/usr/local/bin/stalonetray &
-#dwmblock &
 nm-applet &
-#pa-applet &
-#pasystray &
+pasystray &
+#bluez &
+#solaar &
 
 # Compositor
 #compton &
