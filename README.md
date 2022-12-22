@@ -17,8 +17,8 @@ sudo mv usr/share/xsessions/dwm.desktop /usr/share/xsessions
 sudo mv usr/local/bin/dwm-start.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/dwm-start.sh
 mv .xinitrc ~/
-sudo pacman -S --needed libxft ttf-hack ttf-joypixels picom xorg-xrandr xorg-xsetroot nitrogen stalonetray network-manager-applet pasystray blueman
-yay -S --needed nerd-fonts-source-code-pro libxft-bgra
+sudo pacman -S --needed libxft ttf-hack ttf-joypixels	ttf-sourcecodepro-nerd picom xorg-xrandr xorg-xsetroot nitrogen stalonetray network-manager-applet pasystray blueman
+yay -S --needed libxft-bgra
 ```
 ### Gentoo
 ```
@@ -43,6 +43,7 @@ In order to build dmenu you need the Xlib header files.
 + libxft
 + ttf-hack
 + ttf-joypixels
++ ttf-sourcecodepro-nerd
 + st
 + dmenu
 
