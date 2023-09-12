@@ -92,7 +92,10 @@ nitrogen --restore &
 
 # Display Setting
 #Arch
-xrandr --output HDMI-1 --auto --output DVI-D-1 --auto --left-of HDMI-1 --output DP-1 --auto --right-of HDMI-1 &
+#RX 560
+xrandr --output HDMI-A-0 --auto --output DVI-D-0 --auto --left-of HDMI-A-0 --output DisplayPort-0 --auto --right-of HDMI-A-0 &
+#RX 570
+#xrandr --output HDMI-1 --auto --output DVI-D-1 --auto --left-of HDMI-1 --output DP-1 --auto --right-of HDMI-1 &
 #Gentoo
 #xrandr --output HDMI-A-0 --auto --output DVI-D-0 --auto --left-of HDMI-A-0 --output DisplayPort-0 --auto --right-of HDMI-A-0
 
