@@ -107,10 +107,10 @@ static const char *filecmd[] = { "spacefm", NULL };
 static const char *htopcmd[] = { "st", "-e", "htop", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *configcmd[] = { "st", "-e", "nano", "/home/brian/dwm/config.def.h", NULL };
-static const char *killcmd[] = { "st", "-e", "sudo", "shutdown", "-h", "now", NULL };
+static const char *killcmd[] = { "st", "-e", "sudo", "systemctl", "poweroff", NULL };
 static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak/build/bin/start.sh", NULL };
 static const char *volcmd[] = { "st", "-e", "alsamixer", NULL };
-static const char *rebootcmd[] = { "st", "-e", "sudo", "reboot", NULL };
+static const char *rebootcmd[] = { "st", "-e", "sudo", "systemctl", "reboot", NULL };
 static const char *chromecmd[] = { "chromium", NULL };
 
 static Key keys[] = {
@@ -156,10 +156,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	/* Monitor Manipulation */
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = +1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = -1 } },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	/* Tag Manipulation */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
