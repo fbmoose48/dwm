@@ -111,7 +111,7 @@ static const char *killcmd[] = { "st", "-e", "sudo", "systemctl", "poweroff", NU
 static const char *xmrstakcmd[] = { "st", "-e", "sudo", "/opt/xmr-stak/build/bin/start.sh", NULL };
 static const char *volcmd[] = { "st", "-e", "alsamixer", NULL };
 static const char *rebootcmd[] = { "st", "-e", "sudo", "systemctl", "reboot", NULL };
-static const char *chromecmd[] = { "chromium", NULL };
+static const char *chromecmd[] = { "chromium --disable-features=PrintBrowser", NULL };
 
 static Key keys[] = {
 	/* modifier                     key		function	argument */
